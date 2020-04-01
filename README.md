@@ -1,32 +1,34 @@
-====================
+
 Django Shopping Cart
-====================
+------
+
 
 Django Shopping Cart is a Django app to store product in cart.
+======
 
 
 
 Quick start
 -----------
 
-2. install::
+**1. **install**::**   ```pip install django-shopping-cart```
 
-    pip install django-shopping-cart
+**2. Add "cart" to your INSTALLED_APPS setting like this::**
 
-2. Add "cart" to your INSTALLED_APPS setting like this::
-
+    ```
     INSTALLED_APPS = [
         ...
         'cart',
     ]
-
-    Add below line to settings context_processor::
-        'cart.context_processor.cart_total_amount'
-
     CART_SESSION_ID = 'cart'
+    ```
+
+    **Add below line to settings context_processor::** ```'cart.context_processor.cart_total_amount'```
 
 
-3. You can use the urls in following way::
+
+
+**3. You can use the urls in following way::**
 
     from django.urls import path
     from . import views
@@ -42,13 +44,16 @@ Quick start
         path('cart/cart-detail/',views.cart_detail,name='cart_detail'),
     ]
 
-4. You should have a Product model & Below field is mandatory
+**4. You should have a Product model & Below field is mandatory**
+    ```
+
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='products/')
     price = models.FloatField()
+    ```
 
 
-5. Then views.py should like like this::
+**5. Then views.py should like like this::**
 
     from django.shortcuts import render, redirect
     from store.models import Product
@@ -99,14 +104,15 @@ Quick start
         return render(request, 'cart/cart_detail.html')
 
 
-6. In the template you can use the url in folowing way::
+**6. In the template you can use the url in folowing way::**
 
     <a href="{% url 'cart_add' product.id %}">Add To Cart</a>
     <a href="{% url 'cart_clear' %}">Clear Cart</a>
     <a href="{% url 'item_increment' value.product_id %}">Increament</a>
     <a href="{% url 'item_decrement' value.product_id %}">Decrement</a>
 
-7. To view the cart detail page use the below code
+**7. To view the cart detail page use the below code**
+
     {% load simple_tag %}
 
     Total Length :: {{request.session.cart|length}}
