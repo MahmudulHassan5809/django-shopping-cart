@@ -103,7 +103,7 @@ Quick start
     <a href="{% url 'item_decrement' value.product_id %}">Decrement</a>
 
 6. To view the cart detail page use the below code
-    {% load simple_tag %}
+    {% load cart_tag %}
 
     Total Length :: {{request.session.cart|length}}
 

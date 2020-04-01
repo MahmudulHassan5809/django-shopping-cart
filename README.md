@@ -113,7 +113,7 @@ Quick start
 
 **7. To view the cart detail page use the below code**
 
-    {% load simple_tag %}
+    {% load cart_tag %}
 
     Total Length :: {{request.session.cart|length}}
 
