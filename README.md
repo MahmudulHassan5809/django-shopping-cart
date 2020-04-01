@@ -23,7 +23,8 @@ Quick start
     CART_SESSION_ID = 'cart'
     ```
 
-    **Add below line to settings context_processor::** ```'cart.context_processor.cart_total_amount'```
+    **Add below line to settings context_processor::** 
+    ```'cart.context_processor.cart_total_amount'```
 
 
 
