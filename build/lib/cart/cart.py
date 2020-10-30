@@ -27,9 +27,9 @@ class Cart(object):
                 'userid': self.request.user.id,
                 'product_id': id,
                 'name': product.name,
-                'quantity': 1,
+                'quantity': quantity,
                 'price': str(product.price),
-                'image': product.image.url
+
             }
         else:
             newItem = True
@@ -37,19 +37,18 @@ class Cart(object):
             for key, value in self.cart.items():
                 if key == str(product.id):
 
-                    value['quantity'] = value['quantity'] + 1
+                    value['quantity'] = value['quantity'] + quantity
                     newItem = False
                     self.save()
                     break
-            if newItem == True:
+            if newItem is True:
 
                 self.cart[product.id] = {
                     'userid': self.request,
                     'product_id': product.id,
                     'name': product.name,
-                    'quantity': 1,
+                    'quantity': quantity,
                     'price': str(product.price),
-                    'image': product.image.url
                 }
 
         self.save()
