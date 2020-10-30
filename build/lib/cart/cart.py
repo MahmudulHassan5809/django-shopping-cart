@@ -29,7 +29,7 @@ class Cart(object):
                 'name': product.name,
                 'quantity': quantity,
                 'price': str(product.price),
-
+                'image': product.image.url
             }
         else:
             newItem = True
