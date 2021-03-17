@@ -74,7 +74,7 @@ class Cart(object):
 
                 value['quantity'] = value['quantity'] - 1
                 if(value['quantity'] < 1):
-                    return redirect('cart:cart_detail')
+                    self.remove(product)
                 self.save()
                 break
             else:
